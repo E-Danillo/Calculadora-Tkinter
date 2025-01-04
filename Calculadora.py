@@ -1,24 +1,24 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# Cores
+# Cores usadas no código Hex
 cinza = "#444642"
 dourado = "#D5CB40"
 
 # Janela Principal
-janela = tk.Tk()
-janela.title("Calculadora E.D")
-janela.geometry("320x500")
-janela.resizable(False, False)
+janela = tk.Tk() #Janela principal
+janela.title("Calculadora E.D") #Título
+janela.geometry("320x500") # Dimensões (largura, altura)
+janela.resizable(False, False) # Não deixa redimensionar
 
-# Frame para o Display
-frame_display = tk.Frame(janela, bg=cinza)  # Adicionando cor ao frame
-frame_display.pack(side="top", fill="both", expand=True)
+# Conteiner ( Frame ) para o Display de resultados
+frame_display = tk.Frame(janela, bg=cinza) # Cria o frame na janela principal e de cor cinza
+frame_display.pack(side="top", fill="both", expand=True) # Posiciona o Frame na interface
 
 # Display
 entrada_texto = tk.StringVar()  # Guarda o texto do Display e muda o mesmo
-display = tk.Entry(frame_display, textvariable=entrada_texto, width=20, font=("Arial", 30), justify="right")  # Entry é o campo do Display
-display.pack(pady=10)  # Posiciona o display no topo do frame
+display = tk.Entry(frame_display, textvariable=entrada_texto, width=20, font=("Arial", 40), justify="right", bg=cinza) # Parâmetro do campo de texto Entry
+display.pack(pady=72) # Posição do Display
 
 # Frame para os Botões
 frame_botoes = tk.Frame(janela, bg=cinza)  # Adicionando cor ao frame

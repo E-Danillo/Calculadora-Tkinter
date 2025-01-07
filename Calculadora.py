@@ -6,23 +6,24 @@ cinza = "#444642"
 dourado = "#D5CB40"
 
 # Janela Principal
-janela = tk.Tk() #Janela principal
-janela.title("Calculadora E.D") #Título
-janela.geometry("320x500") # Dimensões (largura, altura)
-janela.resizable(False, False) # Não deixa redimensionar
+janela = tk.Tk()  # Janela principal
+janela.title("Calculadora E.D")  # Título
+janela.geometry("320x500")  # Dimensões (largura, altura)
+janela.resizable(False, False)  # Não deixa redimensionar
 
-# Conteiner ( Frame ) para o Display de resultados
-frame_display = tk.Frame(janela, bg=cinza) # Cria o frame na janela principal e de cor cinza
-frame_display.pack(side="top", fill="both", expand=True) # Posiciona o Frame na interface
+# Conteiner (Frame) para o Display de resultados
+frame_display = tk.Frame(janela, bg=cinza, highlightbackground="black", highlightthickness=2)
+frame_display.pack(side="top", fill="x")  # Preencher na largura
 
-# Display
+# Conteiner (Frame) para os Botões
+frame_botoes = tk.Frame(janela)  # Cria o frame de botões
+frame_botoes.pack(side="top", fill="both", expand=True)  # Preencher todo o espaço disponível
+
+# Display (caixa de texto)
 entrada_texto = tk.StringVar()  # Guarda o texto do Display e muda o mesmo
-display = tk.Entry(frame_display, textvariable=entrada_texto, width=20, font=("Arial", 40), justify="right", bg=cinza) # Parâmetro do campo de texto Entry
-display.pack(pady=72) # Posição do Display
-
-# Frame para os Botões
-frame_botoes = tk.Frame(janela, bg=cinza)  # Adicionando cor ao frame
-frame_botoes.pack(side="top", fill="both", expand=True)
+entrada_texto.set("0")  # Define um texto inicial no display
+display = tk.Entry(frame_display,textvariable=entrada_texto, width=20, font=("Arial", 40), justify="right", bg=cinza, bd=0, highlightthickness=0)  
+display.pack(pady=60)  # Ajuste de posição
 
 # Função para adicionar números ao display
 def clicar(n):
